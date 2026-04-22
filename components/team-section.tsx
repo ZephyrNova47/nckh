@@ -2,18 +2,8 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { GraduationCap, Users, Sparkles, Crown, Award } from "lucide-react"
+import { GraduationCap, Users, Sparkles } from "lucide-react"
 import Image from "next/image"
-
-const director = {
-  name: "Vo Dinh Hieu",
-  /** Tiêu đề cột mục */
-  sectionTitle: "Principal Investigator",
-  /** Nhãn trong card (chức danh) */
-  label: "Associate Professor",
-  affiliation: "VNU-UET",
-  image: "https://zephyrnova47.github.io/nckh/vo-dinh-hieu.png",
-}
 
 const supervisors = [
   {
@@ -43,7 +33,7 @@ const members = [
     name: "Nguyen Ha Linh",
     title: "Student",
     program: "Information System",
-    image: "https://zephyrnova47.github.io/nckh/ha-linh-3.jpg",
+    image: "https://zephyrnova47.github.io/nckh/ha-linh-5.jpg",
   },
   {
     name: "Dang Dao Xuan Truc",
@@ -110,47 +100,6 @@ export function TeamSection() {
             A dedicated group of researchers from the Faculty of Information Technology and the
             Intelligent Software Engineering (iSE) Laboratory.
           </p>
-        </div>
-
-        {/* Principal Investigator */}
-        <div className="mb-14">
-          <div className="mb-8 flex items-center justify-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 shadow-lg shadow-orange-200/50">
-              <Award className="h-5 w-5 text-white" />
-            </div>
-            <h3 className="text-center text-xl font-bold text-foreground">
-              {director.sectionTitle}
-            </h3>
-          </div>
-          <div className="flex justify-center">
-            <Card className="group max-w-sm overflow-hidden border-2 border-orange-300/45 bg-gradient-to-br from-card to-amber-50/80 transition-all duration-300 hover:shadow-2xl">
-              <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-full bg-gradient-to-br from-amber-400 to-orange-400 opacity-10" />
-              <CardContent className="relative pb-6 pt-8 text-center">
-                <div className="relative mx-auto mb-4 h-32 w-32">
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 p-1 shadow-xl">
-                    <div className="h-full w-full overflow-hidden rounded-xl">
-                      <Image
-                        src={director.image}
-                        alt={director.name}
-                        width={128}
-                        height={128}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                      />
-                    </div>
-                  </div>
-                  <div className="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg">
-                    <Crown className="h-4 w-4 text-white" />
-                  </div>
-                </div>
-                <h4 className="mb-2 text-lg font-bold text-foreground">{director.name}</h4>
-                <Badge className="mb-2 rounded-full border-0 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 text-white">
-                  <Award className="mr-1 h-3 w-3" />
-                  {director.label}
-                </Badge>
-                <p className="text-sm text-muted-foreground">{director.affiliation}</p>
-              </CardContent>
-            </Card>
-          </div>
         </div>
 
         {/* Supervisors */}
