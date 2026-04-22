@@ -18,13 +18,13 @@ const director = {
 const supervisors = [
   {
     name: "Nguyen Thu Trang",
-    title: "Postdoc",
+    title: "Ph.D",
     affiliation: "VNU-UET",
     image: "https://zephyrnova47.github.io/nckh/nguyen-thu-trang.png",
   },
   {
     name: "Nguyen Van Son",
-    title: "Postdoc",
+    title: "Ph.D",
     affiliation: "VNU-UET",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nguyen%20Van%20Son-sN2KD8op9d7BjIppnvEqp3JQbjnqoQ.jpg",
@@ -35,34 +35,34 @@ const members = [
   {
     name: "Lam Nguyen Duy Phong",
     title: "Student",
-    program: "Undergraduate in Computer Science",
+    program: "Computer Science",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lam%20Nguyen%20Duy%20Phong-4HHWlxPJVgjASnHDUoRoorxtyQv9K7.jpg",
   },
   {
     name: "Nguyen Ha Linh",
     title: "Student",
-    program: "Undergraduate in Information System",
+    program: "Information System",
     image: "https://zephyrnova47.github.io/nckh/ha-linh.jpg",
   },
   {
     name: "Dang Dao Xuan Truc",
     title: "Student",
-    program: "Undergraduate in Computer Science",
+    program: "Computer Science",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dang%20Dao%20Xuan%20Truc-lUCS9ulprWLYOc5BFzWbYLAMrDaIE8.jpg",
   },
   {
     name: "Nguyen Hong Anh",
     title: "Student",
-    program: "Undergraduate in Computer Science",
+    program: "Computer Science",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nguyen%20Hong%20Anh-VsunewSOjT4yGkV4cBOhMhuG8J8gvV.jpg",
   },
   {
     name: "La Minh Duc",
     title: "Student",
-    program: "Undergraduate in Computer Science",
+    program: "Information System",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/La%20Minh%20Duc-OWCbLuteq36Xx1LcSAKAjpG9qiXjLl.jpg",
   },
@@ -208,14 +208,14 @@ export function TeamSection() {
                 className="group overflow-hidden border-2 border-transparent transition-all duration-300 hover:border-amber-300/50 hover:shadow-xl"
               >
                 <CardContent className="relative pt-6 pb-4 text-center">
-                  <div className="relative mx-auto mb-3 h-20 w-20">
+                  <div className="relative mx-auto mb-3 h-24 w-24 sm:h-28 sm:w-28">
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-400 p-0.5 shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2">
                       <div className="h-full w-full overflow-hidden rounded-2xl">
                         <Image
                           src={member.image}
                           alt={member.name}
-                          width={80}
-                          height={80}
+                          width={112}
+                          height={112}
                           className="h-full w-full object-cover"
                         />
                       </div>

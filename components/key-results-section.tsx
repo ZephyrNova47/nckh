@@ -1,13 +1,13 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { CheckCircle, TrendingUp, Target, Zap, Database, Brain, Sparkles, Heart, Star } from "lucide-react"
+import { TrendingUp, Target, Zap, Database, Brain, Sparkles, Heart, Star } from "lucide-react"
 
 const contributions = [
   {
     icon: Brain,
     title: "End-to-End Framework",
     description:
-      "Coca is a fully automated weak-supervision framework that transforms unlabeled data into both high-quality datasets and robust classifiers without manual intervention.",
+      "A fully automated weak-supervision framework that transforms unlabeled data into both high-quality datasets and robust classifiers without manual intervention.",
     color: "from-primary to-rose-400",
     bgColor: "bg-primary/10",
   },
@@ -101,7 +101,7 @@ export function KeyResultsSection() {
             Research Contributions
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-balance">
-            Coca addresses critical limitations in existing programmatic labeling pipelines 
+            The framework addresses critical limitations in existing programmatic labeling pipelines
             and demonstrates substantial improvements across multiple benchmarks.
           </p>
         </div>
@@ -156,29 +156,6 @@ export function KeyResultsSection() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Highlight Box - Cute Style */}
-        <div className="mt-12 max-w-3xl mx-auto">
-          <Card className="border-2 border-violet-200/60 bg-gradient-to-br from-violet-50/80 via-primary/5 to-amber-50/60 overflow-hidden">
-            <CardContent className="pt-6 relative">
-              <div className="absolute top-0 right-0 w-20 h-20 bg-primary/10 rounded-bl-full" />
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary via-rose-400 to-orange-400 flex items-center justify-center shadow-lg flex-shrink-0">
-                  <CheckCircle className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-foreground mb-2 text-lg">Significant Improvements</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Coca enhanced label quality by up to <span className="font-bold text-primary">125%</span> over 
-                    baselines on the Massive IoT Command dataset and approximately{" "}
-                    <span className="font-bold text-primary">tripled</span> the downstream performance 
-                    compared to Alchemist on the Chemical-Protein Relation classification task.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>

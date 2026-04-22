@@ -66,15 +66,15 @@ export function Footer() {
         <div className="container relative z-10 mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
             <div className="mb-4 flex items-center justify-center gap-2.5">
-              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-lg font-bold text-white shadow-md shadow-orange-200/50">
-                <span className="lowercase">c</span>
+              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-md shadow-orange-200/50">
+                <Sparkles className="h-5 w-5" />
                 <Sparkles className="absolute -right-0.5 -top-0.5 h-3.5 w-3.5 text-amber-100" />
               </div>
-              <span className="text-xl font-bold text-foreground">Coca</span>
+              <span className="text-xl font-bold text-foreground">iSE Research</span>
             </div>
             <p className="text-xs text-muted-foreground sm:text-sm">
               Made with <Heart className="mx-0.5 inline h-3.5 w-3.5 fill-rose-400 text-rose-400" /> by
-              Coca Research Team
+              the iSE Research Team
             </p>
             <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
               Vietnam National University, Hanoi - University of Engineering and Technology

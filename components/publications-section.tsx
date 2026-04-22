@@ -9,6 +9,7 @@ import {
   Rocket,
   BookOpen,
   Award,
+  FileSearch,
 } from "lucide-react"
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
@@ -79,10 +80,10 @@ const publications: PubItem[] = [
     bgColor: "bg-primary/5",
   },
   {
-    status: "preprint",
-    statusLabel: "Preprint",
+    status: "review",
+    statusLabel: "Under review",
     journal: "Neurocomputing",
-    impact: "Open Access",
+    impact: "ISI Q1",
     year: "2026",
     title: "Noise-Aware Framework for Correcting Corrupted Labels",
     authors: [
@@ -159,6 +160,10 @@ function StatusBadge({ status, label }: { status: string; label: string }) {
     preprint: {
       className: "border-blue-300 bg-blue-100 text-blue-700",
       icon: Clock,
+    },
+    review: {
+      className: "border-violet-300 bg-violet-100 text-violet-800",
+      icon: FileSearch,
     },
     patent: {
       className: "border-amber-300 bg-amber-100 text-amber-900",
@@ -299,9 +304,14 @@ export function PublicationsSection() {
               <div className="text-3xl font-bold text-primary">1</div>
               <div className="text-xs font-medium text-muted-foreground">Patent</div>
             </div>
-            <div className="h-10 w-0.5 hidden rounded-full bg-primary/20 sm:block" />
-            <div className="hidden text-center sm:block">
-              <div className="text-3xl font-bold text-accent-foreground">2</div>
+            <div className="h-10 w-0.5 rounded-full bg-primary/20" />
+            <div className="text-center">
+              <div className="text-3xl font-bold text-sky-700">1</div>
+              <div className="text-xs font-medium text-muted-foreground">Preprint</div>
+            </div>
+            <div className="h-10 w-0.5 rounded-full bg-primary/20" />
+            <div className="text-center">
+              <div className="text-3xl font-bold text-violet-700">1</div>
               <div className="text-xs font-medium text-muted-foreground">Under review</div>
             </div>
           </div>

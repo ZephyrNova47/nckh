@@ -32,13 +32,13 @@ export function Navigation() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <a href="#" className="flex items-center gap-2 group">
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-primary text-primary-foreground font-bold text-lg shadow-lg shadow-primary/25 group-hover:scale-110 transition-transform duration-300">
+            <div className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/25 group-hover:scale-110 transition-transform duration-300">
+              <Sparkles className="h-5 w-5" />
               <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-amber-200 animate-pulse" />
-              C
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg text-foreground leading-tight">Coca</span>
-              <span className="text-[10px] text-muted-foreground leading-tight">iSE Lab</span>
+              <span className="font-bold text-lg text-foreground leading-tight">iSE Research</span>
+              <span className="text-[10px] text-muted-foreground leading-tight">Weak Supervision</span>
             </div>
           </a>
 

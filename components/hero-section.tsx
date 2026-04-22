@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight, FileText, Sparkles, Star, Heart } from "lucide-react"
+import { ArrowRight, FileText, Heart, Sparkles, Star } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -21,20 +21,12 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Title with cute styling */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 text-balance">
-            <span className="relative inline-block">
-              <span className="text-primary">Coca</span>
-              <Heart className="absolute -top-2 -right-6 h-5 w-5 text-rose-400 fill-rose-200 animate-pulse" />
-            </span>{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground via-amber-600 to-orange-500">
-              Automated Weak Supervision
-            </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 text-balance bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-primary/80">
+            End-to-End Automated Weak Supervision
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-medium">
-            From Unlabeled Data to High-Quality Datasets
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-4 font-medium text-balance max-w-3xl mx-auto leading-snug">
+            From Unlabeled Data to High-Quality Datasets and Classifiers
           </p>
 
           {/* Description with cute card */}

@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Coca - End-to-End Automated Weak Supervision',
+  title: 'End-to-End Automated Weak Supervision · iSE Lab',
   description: 'From Unlabeled Data to High-Quality Datasets and Classifiers — VNU University of Engineering and Technology, iSE Lab',
   generator: 'v0.app',
   icons: {

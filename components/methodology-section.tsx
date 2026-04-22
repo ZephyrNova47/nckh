@@ -126,7 +126,7 @@ export function MethodologySection() {
             Methodology
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-balance">
-            Coca operates through four interconnected phases, systematically transforming 
+            The pipeline operates through four interconnected phases, systematically transforming
             unlabeled data into high-quality training datasets.
           </p>
         </div>
