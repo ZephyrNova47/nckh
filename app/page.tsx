@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/hero-section"
 import { PublicationsSection } from "@/components/publications-section"
 import { KeyResultsSection } from "@/components/key-results-section"
+import { DatasetsSection } from "@/components/datasets-section"
 import { MethodologySection } from "@/components/methodology-section"
 import { TeamSection } from "@/components/team-section"
 import { Footer } from "@/components/footer"
@@ -14,11 +15,13 @@ export default function Home() {
       <HeroSection />
       <SectionBridge from="base" to="elevated" />
       <PublicationsSection />
-      <SectionBridge from="elevated" to="base" />
-      <KeyResultsSection />
-      <SectionBridge from="base" to="elevated" />
+      <SectionBridge from="elevated" to="elevated" />
       <MethodologySection />
       <SectionBridge from="elevated" to="base" />
+      <DatasetsSection />
+      <SectionBridge from="base" to="base" />
+      <KeyResultsSection />
+      <SectionBridge from="base" to="base" />
       <TeamSection />
       <SectionBridge from="base" to="elevated" />
       <Footer />

@@ -185,7 +185,7 @@ export function PublicationsSection() {
   return (
     <section
       id="publications"
-      className="relative overflow-hidden bg-section-elevated py-16 md:py-24"
+      className="relative overflow-hidden bg-section-elevated py-16 md:py-24 scroll-mt-24"
     >
       {/* Cute background decorations */}
       <div className="absolute inset-0 -z-10">

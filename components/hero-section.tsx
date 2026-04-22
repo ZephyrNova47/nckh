@@ -41,29 +41,32 @@ export function HeroSection() {
             </p>
           </div>
 
-          {/* Cute Stats Cards */}
+          {/* At-a-glance facts from the report structure (no fabricated metrics). */}
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             <div className="group relative px-6 py-4 bg-card rounded-3xl border-2 border-orange-300/45 shadow-lg shadow-orange-200/30 hover:shadow-xl hover:shadow-orange-200/40 hover:scale-105 transition-all duration-300">
               <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
                 <Sparkles className="h-3 w-3 text-white" />
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-orange-600">98.9%</div>
-              <div className="text-sm text-muted-foreground">Label Coverage</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-600">11</div>
+              <div className="text-sm text-muted-foreground">Text benchmarks (Table 4.1)</div>
             </div>
             <div className="group relative px-6 py-4 bg-card rounded-3xl border-2 border-amber-300/45 shadow-lg shadow-amber-200/30 hover:shadow-xl hover:shadow-amber-200/35 hover:scale-105 transition-all duration-300">
               <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
                 <Star className="h-3 w-3 text-white" />
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-amber-600">+138%</div>
-              <div className="text-sm text-muted-foreground">Quality Boost</div>
+              <div className="text-3xl md:text-4xl font-bold text-amber-600">3</div>
+              <div className="text-sm text-muted-foreground">LF levels (surface · structure · semantic)</div>
             </div>
-            <div className="group relative px-6 py-4 bg-card rounded-3xl border-2 border-emerald-300/40 shadow-lg shadow-emerald-200/25 hover:shadow-xl hover:shadow-emerald-200/35 hover:scale-105 transition-all duration-300">
+            <a
+              href="#results"
+              className="group relative px-6 py-4 bg-card rounded-3xl border-2 border-emerald-300/40 shadow-lg shadow-emerald-200/25 hover:shadow-xl hover:shadow-emerald-200/35 hover:scale-105 transition-all duration-300 text-left"
+            >
               <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full flex items-center justify-center">
                 <Heart className="h-3 w-3 text-white" />
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-emerald-600">+173%</div>
-              <div className="text-sm text-muted-foreground">F1 Score Gain</div>
-            </div>
+              <div className="text-lg md:text-xl font-bold text-emerald-600 leading-tight">Results</div>
+              <div className="text-sm text-muted-foreground">Coverage & lift vs. baselines (§5.1)</div>
+            </a>
           </div>
 
           {/* CTA Button with cute styling */}

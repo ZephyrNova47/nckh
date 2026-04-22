@@ -62,7 +62,7 @@ export function TeamSection() {
   return (
     <section
       id="team"
-      className="relative overflow-hidden bg-background py-16 md:py-24"
+      className="relative overflow-hidden bg-background py-16 md:py-24 scroll-mt-24"
     >
       <div className="absolute inset-0 -z-10">
         <div
@@ -102,48 +102,8 @@ export function TeamSection() {
           </p>
         </div>
 
-        {/* Supervisors */}
+        {/* Members (students) first */}
         <div className="mb-14">
-          <div className="mb-8 flex items-center justify-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 shadow-lg shadow-cyan-200/40">
-              <GraduationCap className="h-5 w-5 text-white" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground">Supervisors</h3>
-          </div>
-          <div className="mx-auto flex max-w-2xl flex-wrap justify-center gap-6">
-            {supervisors.map((supervisor) => (
-              <Card
-                key={supervisor.name}
-                className="group min-w-[220px] max-w-[280px] flex-1 overflow-hidden border-2 border-transparent transition-all duration-300 hover:border-violet-300/50 hover:shadow-2xl"
-              >
-                <div className="absolute right-0 top-0 h-20 w-20 rounded-bl-full bg-gradient-to-br from-fuchsia-400 to-violet-500 opacity-10" />
-                <CardContent className="relative pb-6 pt-8 text-center">
-                  <div className="relative mx-auto mb-4 h-28 w-28">
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-fuchsia-500 via-violet-500 to-cyan-400 p-1 shadow-lg">
-                      <div className="h-full w-full overflow-hidden rounded-xl">
-                        <Image
-                          src={supervisor.image}
-                          alt={supervisor.name}
-                          width={112}
-                          height={112}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <h4 className="mb-2 text-base font-bold text-foreground">{supervisor.name}</h4>
-                  <Badge variant="secondary" className="mb-2 rounded-full">
-                    {supervisor.title}
-                  </Badge>
-                  <p className="text-sm text-muted-foreground">{supervisor.affiliation}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Members */}
-        <div>
           <div className="mb-8 flex items-center justify-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-lime-500 to-emerald-600 shadow-lg shadow-emerald-200/40">
               <Users className="h-5 w-5 text-white" />
@@ -179,6 +139,46 @@ export function TeamSection() {
                   <p className="text-[11px] leading-snug text-muted-foreground sm:text-xs">
                     {member.program}
                   </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Supervisors */}
+        <div>
+          <div className="mb-8 flex items-center justify-center gap-2">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-sky-600 shadow-lg shadow-cyan-200/40">
+              <GraduationCap className="h-5 w-5 text-white" />
+            </div>
+            <h3 className="text-xl font-bold text-foreground">Supervisors</h3>
+          </div>
+          <div className="mx-auto flex max-w-2xl flex-wrap justify-center gap-6">
+            {supervisors.map((supervisor) => (
+              <Card
+                key={supervisor.name}
+                className="group min-w-[220px] max-w-[280px] flex-1 overflow-hidden border-2 border-transparent transition-all duration-300 hover:border-violet-300/50 hover:shadow-2xl"
+              >
+                <div className="absolute right-0 top-0 h-20 w-20 rounded-bl-full bg-gradient-to-br from-fuchsia-400 to-violet-500 opacity-10" />
+                <CardContent className="relative pb-6 pt-8 text-center">
+                  <div className="relative mx-auto mb-4 h-28 w-28">
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-fuchsia-500 via-violet-500 to-cyan-400 p-1 shadow-lg">
+                      <div className="h-full w-full overflow-hidden rounded-xl">
+                        <Image
+                          src={supervisor.image}
+                          alt={supervisor.name}
+                          width={112}
+                          height={112}
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <h4 className="mb-2 text-base font-bold text-foreground">{supervisor.name}</h4>
+                  <Badge variant="secondary" className="mb-2 rounded-full">
+                    {supervisor.title}
+                  </Badge>
+                  <p className="text-sm text-muted-foreground">{supervisor.affiliation}</p>
                 </CardContent>
               </Card>
             ))}

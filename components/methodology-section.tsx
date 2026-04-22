@@ -1,6 +1,180 @@
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Search, Filter, Layers, RefreshCw, CheckCircle2, Sparkles } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Search,
+  Filter,
+  Layers,
+  RefreshCw,
+  CheckCircle2,
+  Sparkles,
+  ExternalLink,
+  Braces,
+  Code2,
+  Mic,
+  Stethoscope,
+} from "lucide-react"
+
+const AUTOLF_DATASET_URL =
+  "https://www.kaggle.com/datasets/phonglmnguynduy/autolf-data"
+
+/** Shared “soft” code surface (avoid harsh black blocks). */
+const lfCodeShell =
+  "relative overflow-hidden rounded-2xl border border-sky-200/70 bg-gradient-to-br from-sky-50/90 via-white to-violet-50/50 p-1 shadow-sm ring-1 ring-sky-100/60 dark:border-sky-800/45 dark:from-slate-900/85 dark:via-slate-900/70 dark:to-violet-950/35 dark:ring-sky-900/25"
+
+const lfCodePre =
+  "m-0 max-h-[min(400px,52vh)] overflow-auto px-4 py-3.5 pl-5 font-mono text-[11px] sm:text-xs leading-relaxed text-slate-700 dark:text-slate-200"
+
+const lfCodeAccent =
+  "pointer-events-none absolute left-0 top-3 bottom-3 w-1 rounded-full bg-gradient-to-b opacity-90"
+
+/**
+ * Excerpt from a real auto-generated keyword LF (voice-assistant intents).
+ * Full script includes all 18 intent buckets + fallbacks; see Kaggle bundle.
+ */
+const voiceAssistantLfExcerpt = `import re
+
+def label_function(utterance):
+    utt = utterance.lower()
+
+    # 0: Alarm
+    alarm_kw = [
+        'set alarm', 'wake me up', 'alarm for', 'turn off alarm',
+        'cancel alarm', 'alarm at', 'set an alarm', 'snooze', 'alarm'
+    ]
+    if any(kw in utt for kw in alarm_kw):
+        return 0
+
+    # 1: Audio settings/control
+    audio_kw = [
+        'volume', 'mute', 'unmute', 'audio settings', 'increase sound',
+        'decrease sound', 'turn up', 'turn down', 'louder', 'softer'
+    ]
+    if any(kw in utt for kw in audio_kw):
+        return 1
+
+    # 2: IoT devices
+    iot_kw = [
+        'smart light', 'smart plug', 'thermostat', 'security camera',
+        'smart device', 'dim lamp', 'lock the door', 'unlock', 'turn on light',
+        'turn off light', 'garage door', 'smart home'
+    ]
+    if any(kw in utt for kw in iot_kw):
+        return 2
+
+    # ... calendar, media, food, news, music, weather, Q&A, social,
+    #     recommendations, cooking, travel, email, lists (labels 3–17),
+    #     general fallbacks, then:
+    return -1`
+
+/** Full keyword LF for medical abstract → disease families (auto-generated). */
+const medicalAbstractLfExample = `def label_function(abstract):
+    abstract = abstract.lower()
+
+    # Neoplasms (0)
+    neoplasm_keywords = [
+        'neoplasm', 'tumor', 'tumour', 'carcinoma', 'sarcoma', 'malignancy', 'cancer', 'oncology', 'metastasis', 'adenoma', 'lymphoma', 'leukemia', 'melanoma', 'myeloma', 'glioma'
+    ]
+
+    # Digestive system diseases (1)
+    digestive_keywords = [
+        'gastroenteritis', 'inflammatory bowel disease', 'crohn', 'ulcerative colitis',
+        'hepatitis', 'cirrhosis', 'liver', 'hepatic', 'stomach', 'gastric', 'intestinal',
+        'intestine', 'colon', 'colonic', 'colitis', 'crohn', 'esophagus', 'esophageal',
+        'gastrointestinal', 'pancreas', 'pancreatitis', 'gallbladder', 'cholestasis',
+        'digestive', 'bowel', 'duodenum', 'rectum', 'rectal', 'proctitis'
+    ]
+
+    # Nervous system diseases (2)
+    nervous_keywords = [
+        'neurological', 'neurology', 'brain', 'cerebral', 'cerebrovascular', 'alzheimer', 'parkinson',
+        'multiple sclerosis', 'epilepsy', 'seizure', 'stroke', 'dementia', 'peripheral neuropathy',
+        'encephalopathy', 'encephalitis', 'neuropathy', 'amyotrophic lateral sclerosis', 'huntington',
+        'spinal cord', 'myasthenia gravis', 'meningitis', 'neurodegenerative'
+    ]
+
+    # Cardiovascular diseases (3)
+    cardiovascular_keywords = [
+        'cardiovascular', 'heart', 'coronary', 'myocardial', 'arrhythmia', 'hypertension', 'atherosclerosis',
+        'angina', 'cardiac', 'myocarditis', 'pericarditis', 'stroke', 'thrombosis', 'ischemia', 'cholesterol',
+        'artery', 'arterial', 'vein', 'vascular', 'endocarditis', 'congestive heart', 'heart failure', 'hyperlipidemia',
+        'atrial fibrillation'
+    ]
+
+    # General pathological conditions (4)
+    general_keywords = [
+        'inflammation', 'infection', 'autoimmune', 'syndrome', 'disorder', 'genetic disease',
+        'hereditary', 'metabolic disease', 'immune deficiency', 'syndromic', 'fever', 'sepsis',
+        'shock', 'systemic', 'chronic disease', 'acute condition', 'rare disease', 'inherited',
+        'idiopathic', 'dysfunction', 'failure'
+    ]
+
+    if any(k in abstract for k in neoplasm_keywords):
+        return 0
+    if any(k in abstract for k in digestive_keywords):
+        return 1
+    if any(k in abstract for k in nervous_keywords):
+        return 2
+    if any(k in abstract for k in cardiovascular_keywords):
+        return 3
+    if any(k in abstract for k in general_keywords):
+        return 4
+
+    return -1`
+
+const keywordLfExamples = [
+  {
+    key: "voice",
+    title: "Example 1 — Voice assistant intents",
+    icon: Mic,
+    accent: "from-cyan-400 to-blue-500",
+    headerClass: "from-cyan-500/12 via-card to-blue-500/8",
+    badges: ["Keyword LF", "18-way + abstain"],
+    blurb:
+      "Utterance → integer intent ids via phrase lists; −1 when no bucket fires. Representative of Massive-style commands in our runs.",
+    code: voiceAssistantLfExcerpt,
+    footnote:
+      "Shown through IoT (label 2); the full function continues with media, weather, Q&A, and remaining intents before returning −1.",
+  },
+  {
+    key: "medical",
+    title: "Example 2 — Medical abstract categories",
+    icon: Stethoscope,
+    accent: "from-rose-400 to-amber-500",
+    headerClass: "from-rose-500/12 via-card to-amber-500/8",
+    badges: ["Keyword LF", "5 disease families"],
+    blurb:
+      "PubMed-style abstract → oncology / GI / neuro / cardio / general pathology. Order of checks matters when keywords overlap (e.g. stroke).",
+    code: medicalAbstractLfExample,
+    footnote: "Complete function as generated; −1 abstains when no clinical cue matches.",
+  },
+] as const
+
+const lfConcreteExamples = [
+  {
+    id: "λ_structural",
+    tier: "Structural",
+    name: "Simple structural LF",
+    summary:
+      "Cheap statistics over the string—length buckets, punctuation density, or bag-of-patterns learned from seed labels.",
+    sketch: `wc = len(text.split())
+if wc > 180 and "!" in text:
+    return NEGATIVE  # long rant heuristic
+return ABSTAIN`,
+  },
+  {
+    id: "λ_semantic",
+    tier: "Semantic",
+    name: "Embedding neighborhood LF",
+    summary:
+      "Embed the sentence; if cosine similarity to seeded positives exceeds a margin, vote +1; symmetric rule for negatives; else abstain.",
+    sketch: `z = embed(text)
+if cosine(z, centroid_pos) > 0.82:
+    return POSITIVE
+if cosine(z, centroid_neg) > 0.82:
+    return NEGATIVE
+return ABSTAIN`,
+  },
+] as const
 
 const phases = [
   {
@@ -102,7 +276,7 @@ export function MethodologySection() {
   return (
     <section
       id="methodology"
-      className="relative overflow-hidden bg-section-elevated py-16 md:py-24"
+      className="relative overflow-hidden bg-section-elevated py-16 md:py-24 scroll-mt-24"
     >
       {/* Cute decorations */}
       <div className="absolute inset-0 -z-10">
@@ -165,6 +339,117 @@ export function MethodologySection() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Label functions — tied to released benchmark bundle */}
+        <div className="mt-16 max-w-5xl mx-auto space-y-8">
+          <div className="text-center px-2">
+            <Badge variant="outline" className="mb-3 rounded-full border-violet-300/60 bg-violet-50/80 text-violet-800 dark:bg-violet-950/40 dark:text-violet-200">
+              <Braces className="h-3 w-3 mr-1" />
+              Labeling functions
+            </Badge>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
+              What an LF looks like in our runs
+            </h3>
+            <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto mt-2 text-balance">
+              Each LF is a cheap program{" "}
+              <span className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">λ(x) → y ∪ {"{⊥}"}</span> that votes on
+              an input or abstains. Many LFs together form a <span className="font-semibold text-foreground">label matrix</span>{" "}
+              <span className="font-mono text-xs bg-muted px-1.5 py-0.5 rounded">L ∈ {"{−1,0,+1}"}^{"n×m"}</span> fed to the label
+              model in Phase 03.
+            </p>
+            <a
+              href={AUTOLF_DATASET_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-primary hover:underline"
+            >
+              Companion export: AutoLF benchmark bundle on Kaggle
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+            <p className="text-xs text-muted-foreground mt-2 max-w-xl mx-auto">
+              Use that archive for the exact CSV/JSON layouts, LF counts per task, and weak-label matrices from experiments
+              you can reproduce locally.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {keywordLfExamples.map((ex) => {
+              const Icon = ex.icon
+              return (
+                <Card
+                  key={ex.key}
+                  className="overflow-hidden border-2 border-border/60 shadow-lg shadow-sky-100/40 transition-all hover:shadow-xl dark:shadow-none"
+                >
+                  <CardHeader className={`space-y-3 border-b border-border/50 bg-gradient-to-r pb-4 ${ex.headerClass}`}>
+                    <div className="flex flex-wrap items-start gap-3">
+                      <div
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${ex.accent} text-white shadow-md`}
+                      >
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div className="min-w-0 flex-1 space-y-2">
+                        <CardTitle className="text-base font-bold leading-snug sm:text-lg flex items-center gap-2">
+                          <Code2 className="h-4 w-4 shrink-0 text-muted-foreground" />
+                          {ex.title}
+                        </CardTitle>
+                        <div className="flex flex-wrap gap-1.5">
+                          {ex.badges.map((b) => (
+                            <Badge
+                              key={b}
+                              variant="secondary"
+                              className="rounded-full text-[10px] font-medium px-2.5 py-0.5 bg-white/80 dark:bg-slate-800/80"
+                            >
+                              {b}
+                            </Badge>
+                          ))}
+                        </div>
+                        <CardDescription className="text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                          {ex.blurb}
+                        </CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-4 pb-4 px-3 sm:px-4">
+                    <div className={lfCodeShell}>
+                      <div className={`${lfCodeAccent} ${ex.accent}`} aria-hidden />
+                      <pre className={lfCodePre}>{ex.code}</pre>
+                    </div>
+                    <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground px-0.5">{ex.footnote}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {lfConcreteExamples.map((lf) => (
+              <Card
+                key={lf.id}
+                className="border-2 border-violet-200/40 dark:border-violet-900/50 overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+              >
+                <CardHeader className="pb-2 space-y-1">
+                  <div className="flex items-center justify-between gap-2">
+                    <CardTitle className="text-base font-mono text-sm">{lf.id}</CardTitle>
+                    <Badge variant="secondary" className="text-[10px] shrink-0">
+                      {lf.tier}
+                    </Badge>
+                  </div>
+                  <p className="text-sm font-semibold text-foreground leading-snug">{lf.name}</p>
+                  <CardDescription className="text-xs leading-relaxed">{lf.summary}</CardDescription>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <div className={lfCodeShell}>
+                    <div
+                      className={`${lfCodeAccent} from-violet-400 to-fuchsia-500`}
+                      aria-hidden
+                    />
+                    <pre className={`${lfCodePre} max-h-48`}>{lf.sketch}</pre>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Bottom Note - Cute Style */}

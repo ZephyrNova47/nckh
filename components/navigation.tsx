@@ -6,9 +6,11 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { href: "#publications", label: "Papers", hoverClass: "hover:text-orange-600 hover:bg-orange-50" },
-  { href: "#results", label: "Results", hoverClass: "hover:text-emerald-600 hover:bg-emerald-50" },
-  { href: "#experiments", label: "Experiments", hoverClass: "hover:text-teal-600 hover:bg-teal-50" },
   { href: "#methodology", label: "How it Works", hoverClass: "hover:text-violet-600 hover:bg-violet-50" },
+  { href: "#datasets", label: "Datasets", hoverClass: "hover:text-cyan-600 hover:bg-cyan-50" },
+  { href: "#experiments", label: "Experiments", hoverClass: "hover:text-teal-600 hover:bg-teal-50" },
+  { href: "#results", label: "Results", hoverClass: "hover:text-emerald-600 hover:bg-emerald-50" },
+  { href: "#contributions", label: "Contributions", hoverClass: "hover:text-rose-600 hover:bg-rose-50" },
   { href: "#team", label: "Team", hoverClass: "hover:text-sky-600 hover:bg-sky-50" },
 ]
 
