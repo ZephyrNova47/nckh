@@ -1,4 +1,4 @@
-import { Heart, Sparkles } from "lucide-react"
+import { Heart } from "lucide-react"
 import { SoftPinkWave } from "@/components/section-transition"
 
 export function Footer() {
@@ -65,22 +65,15 @@ export function Footer() {
         />
         <div className="container relative z-10 mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
-            <div className="mb-4 flex items-center justify-center gap-2.5">
-              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white shadow-md shadow-orange-200/50">
-                <Sparkles className="h-5 w-5" />
-                <Sparkles className="absolute -right-0.5 -top-0.5 h-3.5 w-3.5 text-amber-100" />
-              </div>
-              <span className="text-xl font-bold text-foreground">iSE Research</span>
-            </div>
             <p className="text-xs text-muted-foreground sm:text-sm">
               Made with <Heart className="mx-0.5 inline h-3.5 w-3.5 fill-rose-400 text-rose-400" /> by
-              the iSE Research Team
+              DCAI Team
             </p>
             <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
               Vietnam National University, Hanoi - University of Engineering and Technology
             </p>
             <p className="mt-4 inline-flex rounded-full bg-secondary/80 px-4 py-1.5 text-xs font-medium text-primary">
-              Faculty of IT - iSE Lab
+              iSE Lab - Faculty of Information Technology
             </p>
           </div>
         </div>

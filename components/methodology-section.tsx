@@ -1,11 +1,10 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Search, Filter, Layers, RefreshCw, CheckCircle2, Sparkles } from "lucide-react"
+import { Search, Filter, Layers, RefreshCw, CheckCircle2, Sparkles } from "lucide-react"
 
 const phases = [
   {
     number: "01",
-    emoji: "1",
     title: "LF Exploration",
     icon: Search,
     color: "from-blue-400 to-cyan-500",
@@ -53,7 +52,6 @@ const phases = [
   },
   {
     number: "03",
-    emoji: "3",
     title: "Weak Label Aggregation",
     icon: Layers,
     color: "from-amber-400 to-orange-500",
@@ -77,7 +75,6 @@ const phases = [
   },
   {
     number: "04",
-    emoji: "4",
     title: "Noise-Aware Refinement",
     icon: RefreshCw,
     color: "from-primary to-rose-500",
@@ -129,21 +126,6 @@ export function MethodologySection() {
             The pipeline operates through four interconnected phases, systematically transforming
             unlabeled data into high-quality training datasets.
           </p>
-        </div>
-
-        {/* Cute Pipeline Overview */}
-        <div className="hidden lg:flex items-center justify-center gap-3 mb-12 max-w-5xl mx-auto">
-          {phases.map((phase, index) => (
-            <div key={index} className="flex items-center">
-              <div className={`flex items-center gap-2 px-5 py-3 bg-gradient-to-r ${phase.color} rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300`}>
-                <span className="text-lg">{phase.emoji}</span>
-                <span className="text-sm font-bold text-white">{phase.title}</span>
-              </div>
-              {index < phases.length - 1 && (
-                <ArrowRight className="h-5 w-5 text-muted-foreground mx-2 animate-pulse" />
-              )}
-            </div>
-          ))}
         </div>
 
         {/* Detailed Phase Cards - Cute Style */}

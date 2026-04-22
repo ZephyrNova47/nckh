@@ -37,8 +37,8 @@ export function Navigation() {
               <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-amber-200 animate-pulse" />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg text-foreground leading-tight">iSE Research</span>
-              <span className="text-[10px] text-muted-foreground leading-tight">Weak Supervision</span>
+              <span className="font-bold text-lg text-foreground leading-tight">DCAI Team</span>
+              <span className="text-[10px] text-muted-foreground leading-tight">Data Centric</span>
             </div>
           </a>
 
