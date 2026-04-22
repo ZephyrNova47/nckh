@@ -7,62 +7,62 @@ import Image from "next/image"
 
 const director = {
   name: "Vo Dinh Hieu",
-  title: "Director",
+  /** Tiêu đề cột mục */
+  sectionTitle: "Principal Investigator",
+  /** Nhãn trong card (chức danh) */
+  label: "Associate Professor",
   affiliation: "VNU-UET",
-  image:
-    "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Vo%20Dinh%20Hieu-9xPSCQb2sRuMFWJHlYzX9CZT00U3oQ.jpg",
+  image: "/Vo%20Dinh%20Hieu.png",
 }
 
 const supervisors = [
   {
     name: "Nguyen Thu Trang",
-    title: "Doctor",
+    title: "Postdoc",
     affiliation: "VNU-UET",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nguyen%20Thu%20Trang-4iKGQBFuJN8R7rOdXs7i3DSnbPqv4a.jpg",
+    image: "/Nguyen%20Thu%20Trang.png",
   },
   {
     name: "Nguyen Van Son",
-    title: "Doctor",
+    title: "Postdoc",
     affiliation: "VNU-UET",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nguyen%20Van%20Son-sN2KD8op9d7BjIppnvEqp3JQbjnqoQ.jpg",
   },
 ]
 
-const students = [
+const members = [
   {
     name: "Lam Nguyen Duy Phong",
     title: "Student",
-    cohort: "QH-2022-CS1",
+    program: "Undergraduate in Computer Science",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lam%20Nguyen%20Duy%20Phong-4HHWlxPJVgjASnHDUoRoorxtyQv9K7.jpg",
   },
   {
     name: "Nguyen Ha Linh",
     title: "Student",
-    cohort: "QH-2022-IS",
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nguyen%20Ha%20Linh-tTMZTwVlkwlj0m7TlTk9JQPvOxW729.jpg",
+    program: "Undergraduate in Information System",
+    image: "/Ha%20Linh.jpg",
   },
   {
     name: "Dang Dao Xuan Truc",
     title: "Student",
-    cohort: "QH-2022-CS1",
+    program: "Undergraduate in Computer Science",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Dang%20Dao%20Xuan%20Truc-lUCS9ulprWLYOc5BFzWbYLAMrDaIE8.jpg",
   },
   {
     name: "Nguyen Hong Anh",
     title: "Student",
-    cohort: "QH-2023-CS4",
+    program: "Undergraduate in Computer Science",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nguyen%20Hong%20Anh-VsunewSOjT4yGkV4cBOhMhuG8J8gvV.jpg",
   },
   {
     name: "La Minh Duc",
     title: "Student",
-    cohort: "QH-2023-IS",
+    program: "Undergraduate in Computer Science",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/La%20Minh%20Duc-OWCbLuteq36Xx1LcSAKAjpG9qiXjLl.jpg",
   },
@@ -112,13 +112,15 @@ export function TeamSection() {
           </p>
         </div>
 
-        {/* Director */}
+        {/* Principal Investigator */}
         <div className="mb-14">
           <div className="mb-8 flex items-center justify-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 shadow-lg shadow-orange-200/50">
               <Award className="h-5 w-5 text-white" />
             </div>
-            <h3 className="text-xl font-bold text-foreground">Director</h3>
+            <h3 className="text-center text-xl font-bold text-foreground">
+              {director.sectionTitle}
+            </h3>
           </div>
           <div className="flex justify-center">
             <Card className="group max-w-sm overflow-hidden border-2 border-orange-300/45 bg-gradient-to-br from-card to-amber-50/80 transition-all duration-300 hover:shadow-2xl">
@@ -143,7 +145,7 @@ export function TeamSection() {
                 <h4 className="mb-2 text-lg font-bold text-foreground">{director.name}</h4>
                 <Badge className="mb-2 rounded-full border-0 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 text-white">
                   <Award className="mr-1 h-3 w-3" />
-                  {director.title}
+                  {director.label}
                 </Badge>
                 <p className="text-sm text-muted-foreground">{director.affiliation}</p>
               </CardContent>
@@ -191,18 +193,18 @@ export function TeamSection() {
           </div>
         </div>
 
-        {/* Student Researchers */}
+        {/* Members */}
         <div>
           <div className="mb-8 flex items-center justify-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-lime-500 to-emerald-600 shadow-lg shadow-emerald-200/40">
               <Users className="h-5 w-5 text-white" />
             </div>
-            <h3 className="text-xl font-bold text-foreground">Student Researchers</h3>
+            <h3 className="text-xl font-bold text-foreground">Members</h3>
           </div>
           <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-            {students.map((student) => (
+            {members.map((member) => (
               <Card
-                key={student.name}
+                key={member.name}
                 className="group overflow-hidden border-2 border-transparent transition-all duration-300 hover:border-amber-300/50 hover:shadow-xl"
               >
                 <CardContent className="relative pt-6 pb-4 text-center">
@@ -210,8 +212,8 @@ export function TeamSection() {
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-400 p-0.5 shadow-lg transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2">
                       <div className="h-full w-full overflow-hidden rounded-2xl">
                         <Image
-                          src={student.image}
-                          alt={student.name}
+                          src={member.image}
+                          alt={member.name}
                           width={80}
                           height={80}
                           className="h-full w-full object-cover"
@@ -220,12 +222,14 @@ export function TeamSection() {
                     </div>
                   </div>
                   <h4 className="mb-1 flex min-h-[2.5rem] items-center justify-center text-balance text-sm font-semibold text-foreground">
-                    {student.name}
+                    {member.name}
                   </h4>
                   <Badge variant="secondary" className="mb-1.5 rounded-full text-[10px] sm:text-xs">
-                    {student.title}
+                    {member.title}
                   </Badge>
-                  <p className="text-xs text-muted-foreground">{student.cohort}</p>
+                  <p className="text-[11px] leading-snug text-muted-foreground sm:text-xs">
+                    {member.program}
+                  </p>
                 </CardContent>
               </Card>
             ))}

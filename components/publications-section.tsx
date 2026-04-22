@@ -9,7 +9,6 @@ import {
   Rocket,
   BookOpen,
   Award,
-  FileSearch,
 } from "lucide-react"
 import Link from "next/link"
 import type { LucideIcon } from "lucide-react"
@@ -82,9 +81,9 @@ const publications: PubItem[] = [
   {
     status: "preprint",
     statusLabel: "Preprint",
-    journal: "arXiv",
+    journal: "Neurocomputing",
     impact: "Open Access",
-    year: "2025",
+    year: "2026",
     title: "Noise-Aware Framework for Correcting Corrupted Labels",
     authors: [
       "Ha-Linh Nguyen",
@@ -127,9 +126,9 @@ const publications: PubItem[] = [
     ctaLabel: "Patent record (no public link)",
   },
   {
-    status: "review",
-    statusLabel: "Under review",
-    journal: "CITA'26",
+    status: "preprint",
+    statusLabel: "Preprint",
+    journal: "The 15th Conference on Information Technology and its Applications",
     impact: "Conference",
     year: "2026",
     title: "BayesRepair: a probabilistic data-centric approach for label noise repair",
@@ -144,7 +143,7 @@ const publications: PubItem[] = [
     description:
       "A probabilistic, data-centric pipeline for repairing label noise, targeting reliable training under unknown corruption patterns.",
     link: "https://drive.google.com/file/d/1sbJaD4A_32hYt6yLABf-vkaGVU_-FJLt/view?usp=sharing",
-    icon: FileSearch,
+    icon: BookOpen,
     color: "from-rose-500 to-fuchsia-600",
     borderColor: "border-rose-300/50",
     bgColor: "bg-rose-50/80",
@@ -164,10 +163,6 @@ function StatusBadge({ status, label }: { status: string; label: string }) {
     patent: {
       className: "border-amber-300 bg-amber-100 text-amber-900",
       icon: Award,
-    },
-    review: {
-      className: "border-violet-300 bg-violet-100 text-violet-800",
-      icon: FileSearch,
     },
   }
 
@@ -306,7 +301,7 @@ export function PublicationsSection() {
             </div>
             <div className="h-10 w-0.5 hidden rounded-full bg-primary/20 sm:block" />
             <div className="hidden text-center sm:block">
-              <div className="text-3xl font-bold text-accent-foreground">1</div>
+              <div className="text-3xl font-bold text-accent-foreground">2</div>
               <div className="text-xs font-medium text-muted-foreground">Under review</div>
             </div>
           </div>
