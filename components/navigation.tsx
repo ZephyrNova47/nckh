@@ -38,7 +38,7 @@ export function Navigation() {
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg text-foreground leading-tight">DCAI Team</span>
-              <span className="text-[10px] text-muted-foreground leading-tight">Data Centric</span>
+              <span className="text-[10px] text-muted-foreground leading-tight">AI Democratization</span>
             </div>
           </a>
 
