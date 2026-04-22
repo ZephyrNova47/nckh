@@ -12,7 +12,7 @@ const director = {
   /** Nhãn trong card (chức danh) */
   label: "Associate Professor",
   affiliation: "VNU-UET",
-  image: "/Vo%20Dinh%20Hieu.png",
+  image: "https://zephyrnova47.github.io/nckh/vo-dinh-hieu.png",
 }
 
 const supervisors = [
@@ -20,7 +20,7 @@ const supervisors = [
     name: "Nguyen Thu Trang",
     title: "Postdoc",
     affiliation: "VNU-UET",
-    image: "/Nguyen%20Thu%20Trang.png",
+    image: "https://zephyrnova47.github.io/nckh/nguyen-thu-trang.png",
   },
   {
     name: "Nguyen Van Son",
@@ -43,7 +43,7 @@ const members = [
     name: "Nguyen Ha Linh",
     title: "Student",
     program: "Undergraduate in Information System",
-    image: "/Ha%20Linh.jpg",
+    image: "https://zephyrnova47.github.io/nckh/ha-linh.jpg",
   },
   {
     name: "Dang Dao Xuan Truc",
