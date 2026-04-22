@@ -127,8 +127,8 @@ const publications: PubItem[] = [
     ctaLabel: "Patent record (no public link)",
   },
   {
-    status: "preprint",
-    statusLabel: "Preprint",
+    status: "review",
+    statusLabel: "Under review",
     journal: "The 15th Conference on Information Technology and its Applications",
     impact: "Conference",
     year: "2026",
@@ -205,8 +205,8 @@ export function PublicationsSection() {
             Our Publications
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-balance">
-            Journal articles, preprints, patent filings, and work under review. Open the items that have
-            a public link.
+            Journal articles, patent filings, and work under review. Open the items that have a public
+            link.
           </p>
         </div>
 
@@ -306,12 +306,7 @@ export function PublicationsSection() {
             </div>
             <div className="h-10 w-0.5 rounded-full bg-primary/20" />
             <div className="text-center">
-              <div className="text-3xl font-bold text-sky-700">1</div>
-              <div className="text-xs font-medium text-muted-foreground">Preprint</div>
-            </div>
-            <div className="h-10 w-0.5 rounded-full bg-primary/20" />
-            <div className="text-center">
-              <div className="text-3xl font-bold text-violet-700">1</div>
+              <div className="text-3xl font-bold text-violet-700">2</div>
               <div className="text-xs font-medium text-muted-foreground">Under review</div>
             </div>
           </div>

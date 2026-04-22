@@ -37,13 +37,13 @@ const members = [
     title: "Student",
     program: "Computer Science",
     image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Lam%20Nguyen%20Duy%20Phong-4HHWlxPJVgjASnHDUoRoorxtyQv9K7.jpg",
+      "https://zephyrnova47.github.io/nckh/phong-lam.jpg",
   },
   {
     name: "Nguyen Ha Linh",
     title: "Student",
     program: "Information System",
-    image: "https://zephyrnova47.github.io/nckh/ha-linh.jpg",
+    image: "https://zephyrnova47.github.io/nckh/ha-linh-3.jpg",
   },
   {
     name: "Dang Dao Xuan Truc",
