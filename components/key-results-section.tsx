@@ -1,6 +1,17 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { TrendingUp, Target, Zap, Database, Brain, Sparkles, Heart, Star } from "lucide-react"
+import {
+  TrendingUp,
+  Target,
+  Zap,
+  Database,
+  Brain,
+  Sparkles,
+  Heart,
+  Star,
+  BarChart3,
+  FlaskConical,
+} from "lucide-react"
 
 const contributions = [
   {
@@ -76,11 +87,42 @@ const metrics = [
   },
 ]
 
+const experimentSections = [
+  {
+    icon: BarChart3,
+    badge: "RQ1 · Benchmarks",
+    title: "End-to-end performance comparison",
+    description:
+      "We evaluated the full Coca pipeline on eleven text classification benchmarks (binary, multi-class, and multi-label), comparing against state-of-the-art automated label-function generation methods.",
+    bullets: [
+      "Same end-to-end protocol for every dataset: weak labels from the pipeline, then train a downstream classifier and report task metrics on held-out gold labels.",
+      "Coca reaches near-complete coverage (98.9% on average) while prior automated LF methods plateau between roughly 78.6% and 95.1%.",
+      "Higher weak-label quality translates directly into downstream gains: up to ~173% relative improvement in weighted F1 versus the strongest baselines, with large margins on challenging tasks such as ChemProt and Massive.",
+    ],
+    accent: "from-sky-500 to-indigo-600",
+    light: "bg-sky-100/80",
+  },
+  {
+    icon: FlaskConical,
+    badge: "RQ2–RQ5 · Ablations",
+    title: "Controlled studies on each pipeline stage",
+    description:
+      "Beyond aggregate scores, we isolate the value of multi-level LFs, the noise-aware refinement stage, and practical design choices that affect reliability and coverage.",
+    bullets: [
+      "LF categories: systematically enable surface, structural, and semantic LFs alone or in combination to quantify how each representation level contributes to labeling quality.",
+      "Refinement phase: compare Coca with and without noise-aware correction to show that fixing systematically biased consensus labels is critical when heuristics agree-but-are-wrong.",
+      "Intrinsic analyses span LLM and embedding choices for LF synthesis, abstain policies, exploitation filters, label-model variants, refinement losses, and soft-relabeling strategies—mirroring the sensitivity studies in the full report.",
+    ],
+    accent: "from-violet-500 to-fuchsia-600",
+    light: "bg-violet-50",
+  },
+]
+
 export function KeyResultsSection() {
   return (
     <section
       id="results"
-      className="relative overflow-hidden bg-background py-16 md:py-24"
+      className="relative overflow-hidden bg-background py-16 md:py-24 scroll-mt-24"
     >
       {/* Cute decorations */}
       <div className="absolute inset-0 -z-10">
@@ -104,6 +146,68 @@ export function KeyResultsSection() {
             The framework addresses critical limitations in existing programmatic labeling pipelines
             and demonstrates substantial improvements across multiple benchmarks.
           </p>
+        </div>
+
+        {/* Experimental validation — placed early so it appears without scrolling past all contribution cards */}
+        <div id="experiments" className="mb-16 max-w-5xl mx-auto scroll-mt-24">
+          <div className="text-center mb-8">
+            <Badge
+              variant="secondary"
+              className="mb-3 rounded-full px-4 py-1.5 border-2 border-secondary"
+            >
+              <FlaskConical className="h-3.5 w-3.5 mr-1.5" />
+              Experimental validation
+              <BarChart3 className="h-3.5 w-3.5 ml-1.5" />
+            </Badge>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
+              How we demonstrate pipeline effectiveness
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-balance text-sm mt-2">
+              The evaluation mirrors the empirical methodology in our NCKH report: large-scale
+              comparisons plus targeted ablations that attribute gains to specific stages of the
+              system.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {experimentSections.map((block) => (
+              <Card
+                key={block.title}
+                className="group border-2 border-transparent hover:border-primary/20 hover:shadow-xl transition-all duration-300 overflow-hidden"
+              >
+                <CardContent className="pt-6 pb-6 relative">
+                  <div
+                    className={`absolute top-0 right-0 w-32 h-32 ${block.light} rounded-bl-full opacity-60`}
+                  />
+                  <div className="relative space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div
+                        className={`flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br ${block.accent} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                      >
+                        <block.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <Badge variant="outline" className="mb-2 text-[10px] uppercase tracking-wide">
+                          {block.badge}
+                        </Badge>
+                        <h4 className="font-bold text-foreground text-lg leading-snug">
+                          {block.title}
+                        </h4>
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{block.description}</p>
+                    <ul className="space-y-2.5 text-sm text-muted-foreground">
+                      {block.bullets.map((line) => (
+                        <li key={line} className="flex gap-2">
+                          <span className="text-primary font-bold flex-shrink-0">·</span>
+                          <span className="leading-relaxed">{line}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Contributions - Cute Cards */}
